@@ -1,4 +1,10 @@
 FROM node:20-alpine
-RUN npm ci
+
 WORKDIR /app/fluxer-watermelon-reactor
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+
 CMD ["node", "index.js"]
